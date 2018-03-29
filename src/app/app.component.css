@@ -1,0 +1,184 @@
+.layout {
+    height: 100%;
+}
+
+.container {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 40%;
+    margin-top: 10%;
+}
+
+.search-bar-container {
+    width: 100%;
+    /* padding: 20px; */
+    size: 24px;
+    border: 0;
+    border-bottom: 5px solid #eee;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 10px;
+    margin-bottom: 20px;
+}
+
+.search-bar-container:focus-within {
+    outline: none;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 20px;
+}
+
+input.search-bar {
+    border: 0;
+    width: calc(100% - 80px);
+    /* margin: 20px; */
+    font-size: 18px;
+    padding: 20px;
+    border-radius: 10px;
+    /* margin: 0 -20px 0 20px; */
+}
+
+input.search-bar:focus {
+    outline: none;
+    border: 0;
+    /* width: calc(100% - 40px); */
+    /* margin: 20px; */
+    font-size: 18px;
+    padding: 20px;
+    border-radius: 10px;
+    /* margin: 0 -20px 0 20px; */
+}
+
+.search-icon {
+    color: #ddd;
+    /* width: 20px; */
+    font-size: 18px;
+}
+
+.title-main {
+    font-weight: 700;
+}
+
+.card {
+    margin-bottom: 20px;
+    width: 100%;
+    padding: 20px 0 20px 0;
+    size: 24px;
+    border: 0;
+    border-bottom: 5px solid #eee;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 10px;
+}
+
+.card:hover {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 20px;
+    cursor: pointer;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.card-title {
+    font-weight: 400;
+    margin: 0 20px 0 20px;
+    font-size: 18px;
+}
+
+.card-extra {
+    margin: 0 20px 0 0;
+    width: 18px;
+}
+
+.card-body {
+    margin: 0 20px 0 20px;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 300;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px 20px 0px 20px;
+    font-size: 14px;
+    /* line-height: 24px; */
+    font-weight: 300;
+}
+
+.button {
+    border-bottom: 5px solid;
+    border-radius: 10px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.send.button {
+    background: rgb(72, 115, 231);
+    border-bottom-color:  rgb(40, 69, 146);
+    color: rgb(40, 69, 146);
+    box-shadow: rgba(40, 69, 146, 0.2) 0px 5px 10px;
+}
+
+.send.button:hover {
+    box-shadow: rgba(40, 69, 146, 0.4) 0px 10px 20px;
+}
+
+.back.button {
+    background: rgb(204, 49, 49);
+    border-bottom-color:  rgb(158, 43, 43);
+    color: rgb(158, 43, 43);
+    box-shadow: rgba(204, 49, 49, 0.2) 0px 5px 10px;
+}
+
+.back.button:hover {
+    box-shadow: rgba(204, 49, 49, 0.4) 0px 10px 20px;
+}
+
+.card-tag {
+    display: inline;
+    font-size: 12px;
+    padding: 10px;
+    color: #aaa;
+    background: #eee;
+    border-bottom: 3px solid #ccc;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 10px;
+    margin-left: 10px;
+}
+
+.card-tag:hover {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 20px;
+}
+
+/* .card-body {
+    margin: 0;
+} */
+
+/* Wide */
+
+@media screen and (max-width: 1680px) {
+    .container {
+        width: 50%;
+    }
+}
+
+
+/* Normal */
+
+@media screen and (max-width: 1280px) {
+    .container {
+        width: 50%;
+    }
+}
+
+
+/* Tablet */
+
+@media screen and (max-width: 780px) {
+    .container {
+        width: 90%;
+    }
+}

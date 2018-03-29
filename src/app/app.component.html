@@ -1,20 +1,104 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<!-- <nz-layout style="height: 100%">
+  <nz-header>Header</nz-header>
+  <nz-content>
+    <div nz-row>
+      <div nz-col [nzSpan]="16" [nzOffset]="4">
+        <form nz-form [nzType]="'horizontal'">
+          <div nz-form-item nz-row>
+            <div nz-form-control [nzValidateStatus]="searchStatus" nzHasFeedback>
+              <nz-input name="keyword" [(ngModel)]="keyword" [nzSize]="'large'" [nzPlaceHolder]="'Basic usage'" (keyup.enter)="getBlurSearchResult()"></nz-input>
+              <div nz-row [nzGutter]="8">
+                  <div *ngFor="let r of results" nz-col [nzSpan]="24">
+              <nz-card nzLoading="false">
+                  <ng-template #title>
+                      {{r.title}}
+                  </ng-template>
+                  <ng-template #extra>
+                    <a>More</a>
+                  </ng-template>
+                  <ng-template #body>
+                    <p>{{r.snippet}}</p>
+                  </ng-template>
+                </nz-card>
+                </div>
+                </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </nz-content>
+  <nz-footer>Footer</nz-footer>
+</nz-layout> -->
+<div class="layout">
+  <div class="container">
+    <h1 class='title-main'>Let us cook your Novel.</h1>
+    <div class="search-bar-container">
+      <input type="text" class="search-bar" name="keyword" [(ngModel)]="keyword" placeholder="搜索" (keyup.enter)="getBlurSearchResult()">
+      <i *ngIf="!searching; else loadingIcon" class="fas fa-search search-icon"></i>
+      <ng-template #loadingIcon>
+        <i class="fas fa-spinner fa-spin search-icon"></i>
+      </ng-template>
+    </div>
+    <div *ngIf="!sourceSelected; else selected;" class="search-result">
+      <div *ngFor="let r of results">
+        <div class="card">
+          <div class="card-header" (click)="selectSource(r)">
+            <div class="card-title" #title>
+              {{r.title}}
+            </div>
+            <!-- <div class="card-extra" #extra>
+              <a [href]="r.link" target="_blank">
+                <i class="fas fa-external-link-square-alt search-icon"></i>
+              </a>
+            </div> -->
+          </div>
+          <div class="card-body" (click)="selectSource(r)" #body>
+            {{r.snippet}}
+          </div>
+          <div class="card-footer" #footer>
+            <a class="card-tag" [href]="r.link" target="_blank">
+              {{r.displayLink}}
+              <i class="fas fa-external-link-square-alt"></i>
+            </a>
+            <a class="send button card-tag" [href]="r.link" target="_blank">
+                <i class="fas fa-download"></i>
+              </a>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <ng-template #selected>
+      <div class="card" (click)="selectSource(r)">
+        <div class="card-header">
+          <div class="card-title" #title>
+            {{source.title}}
+          </div>
+          <!-- <div class="card-extra" #extra>
+            <a [href]="source.link" target="_blank">
+              <i class="fas fa-external-link-square-alt search-icon"></i>
+            </a>
+          </div> -->
+        </div>
+        <div class="card-body" #body>
+          {{source.snippet}}
+        </div>
+        <div class="card-footer" #footer>
+          <a class="card-tag" [href]="source.link" target="_blank">
+            {{source.displayLink}}
+            <i class="fas fa-external-link-square-alt"></i>
+          </a>
+        </div>
+      </div>
+      <div class="card send button" (click)="unselectSource()">
+        <i class="fas fa-download"></i> 下载
+      </div>
+      <div class="card back button" (click)="unselectSource()">
+        <i class="fas fa-chevron-left"></i> 返回
+      </div>
+
+    </ng-template>
+
+  </div>
+</div>
